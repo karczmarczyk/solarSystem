@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Animacja punktu po elipsie</title>
+    <style>
+      canvas {
+        border: 1px solid #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+      const canvas = document.getElementById("canvas");
+      const ctx = canvas.getContext("2d");
+      
+      let t = 0;
+      const a = 200; // półoś a
+      const b = 100; // półoś b
+      const x0 = 250; // początkowe położenie x
+      const y0 = 250; // początkowe położenie y
+      
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        const x = x0 + a * Math.cos(t);
+        const y = y0 + b * Math.sin(t);
+        
+        ctx.beginPath();
+        ctx.arc(x, y, 5, 0, 2 * Math.PI);
+        ctx.fill();
+        
+        t += 0.01;
+        requestAnimationFrame(animate);
+      }
+      
+      animate();
+    </script>
+  </body>
+</html>
