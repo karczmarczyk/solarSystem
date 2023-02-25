@@ -28,9 +28,9 @@ function Orbit (a,b) {
         let y = this.y0 + this.b * Math.sin(t);
 
         if (y<=this.y0) {
-            this.isFrontOfSun = true;
-        } else {
             this.isFrontOfSun = false;
+        } else {
+            this.isFrontOfSun = true;
         }
 
         return {x:x, y:y};
