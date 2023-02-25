@@ -1,7 +1,5 @@
 function Planet (elementName) {
 
-    const sunPosition = 1000;
-
     this.element = $(elementName);
     this.posX = 100;
     this.posY = 100;
@@ -54,6 +52,7 @@ function Planet (elementName) {
         this.posX = p.x;
         this.posY = p.y;
 
+        let sunPosition = this.orbit.getSolarCentre().z;
         if (this.orbit.getIsFrontOfSun()) {
             this.posZ = sunPosition + this.distanceFromSun;
         } else {

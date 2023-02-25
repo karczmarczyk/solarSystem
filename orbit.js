@@ -9,17 +9,23 @@ function Orbit (a,b) {
     // warość początkowa na elipsie
     this.x0 = 0;
     this.y0 = 0;
+    this.z0 = 0;
 
     this.isFrontOfSun = true;
 
     this.setCentre = function(p) {
         this.x0 = p.x;
         this.y0 = p.y;
+        this.z0 = p.z;
         return this;
     }
 
     this.getIsFrontOfSun = function () {
         return this.isFrontOfSun;
+    }
+
+    this.getSolarCentre = function () {
+        return {x:this.x0, y:this.y0, z:this.z0};
     }
 
     this.calcPosition = function (t) {
