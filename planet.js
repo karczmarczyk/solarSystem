@@ -4,9 +4,11 @@ function Planet (elementName) {
     this.posX = 100;
     this.posY = 100;
     this.posZ = 100;
-    this.speed = 1;
+    this.speed = 1; // km/s
+    this.speedX = 0.001;
     this.planetSize = 100;
-    this.t = 0;
+    this.planetSizeAfterResize = 100;
+    this.t = Math.random(); //0;
     this.orbit;
     this.distanceFromSun = 0;
 
@@ -47,7 +49,7 @@ function Planet (elementName) {
     }
 
     this.orbiting = function () {
-        this.t = this.t + this.speed;
+        this.t = this.t + (this.speed * this.speedX);
         let p = this.orbit.calcPosition(this.t);
         this.posX = p.x;
         this.posY = p.y;
@@ -59,7 +61,19 @@ function Planet (elementName) {
             this.posZ = sunPosition - this.distanceFromSun;
         }
 
+        this.resize(this.orbit.sinValue);
+
         this.updatePosition();
+    }
+
+    this.resize = function(sinValue) {
+        let x = 1;
+        if (sinValue > 0) {
+            x = 1.1 + sinValue;
+        } else {
+            x = 1.1 - ((-1) * sinValue);
+        }
+        this.planetSizeAfterResize = this.planetSize * x;
     }
 
     this.updatePosition = function () {
@@ -67,8 +81,8 @@ function Planet (elementName) {
             'margin-left':this.posX+'px',
             'margin-top':this.posY+'px',
             'z-index':this.posZ,
-            'height':this.planetSize+'px',
-            'width':this.planetSize+'px',
+            'height':this.planetSizeAfterResize+'px',
+            'width':this.planetSizeAfterResize+'px',
         });
     }
 

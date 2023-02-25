@@ -13,6 +13,8 @@ function Orbit (a,b) {
 
     this.isFrontOfSun = true;
 
+    this.sinValue;
+
     this.setCentre = function(p) {
         this.x0 = p.x;
         this.y0 = p.y;
@@ -32,6 +34,8 @@ function Orbit (a,b) {
         // wyznaczam pozycję
         let x = this.x0 + this.a * Math.cos(t);
         let y = this.y0 + this.b * Math.sin(t);
+
+        this.sinValue = Math.sin(t);
 
         if (y<=this.y0) {
             this.isFrontOfSun = false;
