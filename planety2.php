@@ -11,25 +11,32 @@
   
     <div class="universe">
 
-        <div class="planet" id="sun"></div>    
+        <div class="planet" title="The Sun" id="sun"></div>    
         
-        <div class="planet" id="mercury"></div>
+        <div class="planet" title="Mercury" id="mercury"></div>
 
-        <div class="planet" id="venus"></div>
+        <div class="planet" titile="Venus" id="venus"></div>
 
-        <div class="planet" id="earth">
+        <div class="planet" title="Earth" id="earth">
             <div class="planet" id="moon"></div>
         </div>
 
-        <div class="planet" id="mars"></div>
+        <div class="planet" title="Mars" id="mars"></div>
 
-        <div class="planet" id="jupiter"></div>
+        <div class="planet drwalf_planet" title="Ceres" id="ceres"></div>
 
-        <div class="planet" id="saturn"></div>
+        <div class="planet" title="Jupiter" id="jupiter"></div>
 
-        <div class="planet" id="uranus"></div>
+        <div class="planet" title="Saturn" id="saturn"></div>
 
-        <div class="planet" id="neptun"></div>
+        <div class="planet" title="Uranus" id="uranus"></div>
+
+        <div class="planet" title="Neptun" id="neptun"></div>
+
+        <div class="planet drwalf_planet" title="Makemake" id="makemake"></div>
+        <div class="planet drwalf_planet" title="Haumea" id="haumea"></div>
+        <div class="planet drwalf_planet" title="Pluto" id="pluto"></div>
+        <div class="planet drwalf_planet" title="Eris" id="eris"></div>
 
     </div>
 
@@ -57,6 +64,11 @@
             .setOrbit(marsOrbit)
             .setDistanceFromSun(400).setSpeed(24.1).setSize(40);
 
+        let ceresOrbit = new Orbit(600,125).setCentre(solarSystemCentre);
+        let ceres = new Planet('#ceres')
+            .setOrbit(ceresOrbit)
+            .setDistanceFromSun(400).setSpeed(17.1).setSize(10);
+
         let jupiterOrbit = new Orbit(700,150).setCentre(solarSystemCentre);
         let jupiter = new Planet('#jupiter')
             .setOrbit(jupiterOrbit)
@@ -76,16 +88,41 @@
         let neptun = new Planet('#neptun')
             .setOrbit(neptunOrbit)
             .setDistanceFromSun(700).setSpeed(5.4).setSize(50);
+
+        let makemakeOrbit = new Orbit(1600,500).setCentre(solarSystemCentre);
+        let makemake = new Planet('#makemake')
+            .setOrbit(makemakeOrbit)
+            .setDistanceFromSun(700).setSpeed(4).setSize(10);
+
+        let haumeaOrbit = new Orbit(1600,500).setCentre(solarSystemCentre);
+        let haumea = new Planet('#haumea')
+            .setOrbit(haumeaOrbit)
+            .setDistanceFromSun(700).setSpeed(4.1).setSize(10);
+
+        let plutoOrbit = new Orbit(1600,500).setCentre(solarSystemCentre);
+        let pluto = new Planet('#pluto')
+            .setOrbit(plutoOrbit)
+            .setDistanceFromSun(700).setSpeed(3.9).setSize(10);
+
+        let erisOrbit = new Orbit(1600,500).setCentre(solarSystemCentre);
+        let eris = new Planet('#eris')
+            .setOrbit(erisOrbit)
+            .setDistanceFromSun(700).setSpeed(4.2).setSize(10);
             
         setInterval(function(){
             mercury.orbiting();
             venus.orbiting();
             earth.orbiting();
             mars.orbiting();
+            ceres.orbiting();
             jupiter.orbiting();
             saturn.orbiting();
             uranus.orbiting();
             neptun.orbiting();
+            makemake.orbiting();
+            haumea.orbiting();
+            pluto.orbiting();
+            eris.orbiting();
         }, 100);
         
         // pozycja myszy

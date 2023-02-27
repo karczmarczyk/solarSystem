@@ -68,11 +68,7 @@ function Planet (elementName) {
 
     this.resize = function(sinValue) {
         let x = 1;
-        if (sinValue > 0) {
-            x = 1.1 + sinValue;
-        } else {
-            x = 1.1 - ((-1) * sinValue);
-        }
+        x = 1 + (sinValue/2);
         this.planetSizeAfterResize = this.planetSize * x;
     }
 

@@ -105,6 +105,20 @@ div.planet {
     background-size: 118%;
 }
 
+#ceres {
+    z-index: 100;
+    margin-left: 100px;
+    margin-top: 350px;
+
+    width: 80px;
+    height: 80px;
+
+    background-color: transparent;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/3/37/PIA18920-Ceres-DawnSpacecraft-Animation-20150219.gif');
+    background-position: center;
+    background-size: 118%;
+}
+
 #jupiter {
     z-index: 100;
     margin-left: 100px;
@@ -159,4 +173,60 @@ div.planet {
     background-image: url('https://i.pinimg.com/originals/f0/9a/9c/f09a9c0d89c3f3b249a4bb28f327eba1.gif');
     background-position: center;
     background-size: 120%;   
+}
+
+#makemake {
+    z-index: 100;
+    margin-left: 100px;
+    margin-top: 350px;
+
+    width: 80px;
+    height: 80px;
+
+    background-color: transparent;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/79/Makemake_Animation.gif');
+    background-position: center;
+    background-size: 118%;
+}
+
+#haumea {
+    z-index: 100;
+    margin-left: 100px;
+    margin-top: 350px;
+
+    width: 80px;
+    height: 80px;
+
+    background-color: transparent;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/9c/Haumea_Rotation.gif');
+    background-position: center;
+    background-size: 90%;
+}
+
+#makemake {
+    z-index: 100;
+    margin-left: 100px;
+    margin-top: 350px;
+
+    width: 80px;
+    height: 80px;
+
+    background-color: transparent;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/c1/Pluto_Rotation_Movie.gif');
+    background-position: center;
+    background-size: 118%;
+}
+
+#eris {
+    z-index: 100;
+    margin-left: 100px;
+    margin-top: 350px;
+
+    width: 80px;
+    height: 80px;
+
+    background-color: transparent;
+    background-image: url('https://bigthink.com/wp-content/uploads/2022/06/ezgif-3-114ed28e0f.gif');
+    background-position: center;
+    background-size: 118%;
 }
