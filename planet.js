@@ -17,6 +17,9 @@ class Planet {
         this.elementName = elementName;
         this.element = $(elementName);
         console.log(this.elementName);
+
+        this.element.html('<div class="planet_core" id="'+elementName+'-planet"></div>');
+
         return this;
     }
 

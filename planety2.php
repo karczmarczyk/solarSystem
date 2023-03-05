@@ -11,7 +11,7 @@
   
     <div class="universe">
 
-        <div class="planet" title="The Sun" id="sun"></div>    
+        <div class="star" title="The Sun" id="sun"></div>    
         
         <div class="planet" title="Mercury" id="mercury"></div>
 

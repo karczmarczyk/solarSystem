@@ -13,11 +13,21 @@ div.universe {
     overflow: hidden;
 }
 
+div.star {
+    position: absolute;
+    border-radius: 50%;
+}
+
 div.planet {
     position: absolute;
-    background: silver;
     width: 100px;
     height: 100px;
+}
+
+div.planet_core {
+    width: 100%;
+    height: 100%;
+
     border-radius: 50%;
 
     background-repeat: no-repeat;
@@ -40,7 +50,7 @@ div.planet {
     background-size: 148%;
 }
 
-#earth {
+#earth > .planet_core {
     /* background-image: url('https://e7.pngegg.com/pngimages/691/757/png-clipart-earth-world-earth-3d-computer-graphics-globe.png'); */
     /* background-image: url('earth.gif'); */
     background-image: url('https://i.pinimg.com/originals/2b/07/f6/2b07f62987e987d4e53e84aa8b963b83.gif');
@@ -52,62 +62,62 @@ div.planet {
     background-size: 150%;
 }
 
-#mercury {
+#mercury > .planet_core {
     background-image: url('https://media0.giphy.com/media/l0HlO4V8iCRME3i0g/200w.gif?cid=6c09b9520m7ukzd85gisn3v4clt34j6mu5w615j4josuoidj&rid=200w.gif&ct=g');
     background-size: 110%;
 }
 
-#venus {
+#venus > .planet_core {
     background-image: url('https://media1.giphy.com/media/l0MYB89UFsVqLY5oc/giphy.gif');
     background-size: 140%;
 }
 
-#mars {
+#mars > .planet_core {
     background-image: url('https://i.pinimg.com/originals/38/bc/56/38bc56565ead27975dadedaa937f6840.gif');
     background-size: 118%;
 }
 
-#ceres {
+#ceres > .planet_core {
     background-image: url('https://upload.wikimedia.org/wikipedia/commons/3/37/PIA18920-Ceres-DawnSpacecraft-Animation-20150219.gif');
     background-size: 118%;
 }
 
-#jupiter {
+#jupiter > .planet_core {
     background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Jupiter_Rotation_Movie_-_Hubble_2015.gif/640px-Jupiter_Rotation_Movie_-_Hubble_2015.gif');
     background-size: 140%;
 }
 
-#saturn {
+#saturn > .planet_core {
     background-image: url('saturn.png');
     background-size: 90%;
 }
 
-#uranus {
+#uranus > .planet_core {
     background-image: url('https://i.gifer.com/origin/a7/a729f99ef86986a2b1805b1be72c41c4.gif');
     background-size: 170%;   
 }
 
-#neptun {
+#neptun > .planet_core {
     background-image: url('https://i.pinimg.com/originals/f0/9a/9c/f09a9c0d89c3f3b249a4bb28f327eba1.gif');
     background-size: 120%;   
 }
 
-#makemake {
+#makemake > .planet_core {
     background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/79/Makemake_Animation.gif');
     background-size: 118%;
 }
 
-#haumea {
+#haumea > .planet_core {
     background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/9c/Haumea_Rotation.gif');
     background-size: 90%;
 }
 
-#makemake {
+#makemake > .planet_core {
     background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/c1/Pluto_Rotation_Movie.gif');
     background-size: 118%;
 }
 
-#eris {
+#eris > .planet_core {
     background-image: url('https://bigthink.com/wp-content/uploads/2022/06/ezgif-3-114ed28e0f.gif');
     background-size: 118%;
 }
