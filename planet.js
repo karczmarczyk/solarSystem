@@ -1,54 +1,62 @@
-function Planet (elementName) {
+class Planet {
 
-    this.element = $(elementName);
-    this.posX = 100;
-    this.posY = 100;
-    this.posZ = 100;
-    this.speed = 1; // km/s
-    this.speedX = 0.001;
-    this.planetSize = 100;
-    this.planetSizeAfterResize = 100;
-    this.t = Math.random(); //0;
-    this.orbit;
-    this.distanceFromSun = 0;
+    elementName;
+    element;
+    posX = 100;
+    posY = 100;
+    posZ = 100;
+    speed = 1; // km/s
+    speedX = 0.001;
+    planetSize = 100;
+    planetSizeAfterResize = 100;
+    t = Math.random(); //0;
+    orbit;
+    distanceFromSun = 0;
 
-    this.setPosition = function (x, y) {
+    constructor(elementName) {
+        this.elementName = elementName;
+        this.element = $(elementName);
+        console.log(this.elementName);
+        return this;
+    }
+
+    setPosition (x, y) {
         this.posX = x;
         this.posY = y;
         return this;
     }
 
-    this.setDistanceFromSun = function (d) {
+    setDistanceFromSun (d) {
         this.distanceFromSun = d;
         return this;
     } 
 
-    this.setSpeed = function (s) {
+    setSpeed (s) {
         this.speed = s;
         return this;
     }
 
-    this.setSize = function(s) {
+    setSize (s) {
         this.planetSize = s;
         return this;
     }
 
-    this.setOrbit = function(o) {
+    setOrbit (o) {
         this.orbit = o;
         return this;
     }
 
-    this.getElement = function () {
+    getElement () {
         return this.element;
     }
 
-    this.move = function () {
+    move () {
         this.posX = this.posX + this.speed;
         // ++this.planetSize;
         this.updatePosition();
     }
 
-    this.orbiting = function () {
+    orbiting () {
         this.t = this.t + (this.speed * this.speedX);
         let p = this.orbit.calcPosition(this.t);
         this.posX = p.x;
@@ -66,13 +74,13 @@ function Planet (elementName) {
         this.updatePosition();
     }
 
-    this.resize = function(sinValue) {
+    resize (sinValue) {
         let x = 1;
         x = 1 + (sinValue/2);
         this.planetSizeAfterResize = this.planetSize * x;
     }
 
-    this.updatePosition = function () {
+    updatePosition () {
         this.getElement().css({
             'margin-left':this.posX+'px',
             'margin-top':this.posY+'px',
@@ -81,6 +89,4 @@ function Planet (elementName) {
             'width':this.planetSizeAfterResize+'px',
         });
     }
-
-    return this;
 }

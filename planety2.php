@@ -18,7 +18,7 @@
         <div class="planet" titile="Venus" id="venus"></div>
 
         <div class="planet" title="Earth" id="earth">
-            <div class="planet" id="moon"></div>
+            <!-- <div class="planet" id="moon"></div> -->
         </div>
 
         <div class="planet" title="Mars" id="mars"></div>
@@ -126,9 +126,9 @@
         }, 100);
         
         // pozycja myszy
-        $(document).bind('mousemove',function(e){ 
-            console.log("e.pageX: " + e.pageX + ", e.pageY: " + e.pageY); 
-        }); 
+        // $(document).bind('mousemove',function(e){ 
+        //     console.log("e.pageX: " + e.pageX + ", e.pageY: " + e.pageY); 
+        // }); 
 
     </script>
 

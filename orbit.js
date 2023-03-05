@@ -1,36 +1,42 @@
-function Orbit (a,b) {
+class Orbit {
     
     // półosie
-    this.a = a;
-    this.b = b;
+    a = 0;
+    b = 0;
 
-    this.t = 0;
+    t = 0;
 
     // warość początkowa na elipsie
-    this.x0 = 0;
-    this.y0 = 0;
-    this.z0 = 0;
+    x0 = 0;
+    y0 = 0;
+    z0 = 0;
 
-    this.isFrontOfSun = true;
+    isFrontOfSun = true;
 
-    this.sinValue;
+    sinValue;
 
-    this.setCentre = function(p) {
+    constructor (a,b) {
+        this.a = a;
+        this.b = b;
+        return this;
+    }
+
+    setCentre (p) {
         this.x0 = p.x;
         this.y0 = p.y;
         this.z0 = p.z;
         return this;
     }
 
-    this.getIsFrontOfSun = function () {
+    getIsFrontOfSun () {
         return this.isFrontOfSun;
     }
 
-    this.getSolarCentre = function () {
+    getSolarCentre () {
         return {x:this.x0, y:this.y0, z:this.z0};
     }
 
-    this.calcPosition = function (t) {
+    calcPosition (t) {
         // wyznaczam pozycję
         let x = this.x0 + this.a * Math.cos(t);
         let y = this.y0 + this.b * Math.sin(t);
@@ -45,6 +51,4 @@ function Orbit (a,b) {
 
         return {x:x, y:y};
     }
-
-    return this;
 }
