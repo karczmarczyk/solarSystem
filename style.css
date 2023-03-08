@@ -24,6 +24,12 @@ div.planet {
     height: 100px;
 }
 
+div.satelite {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+}
+
 div.planet_core {
     width: 100%;
     height: 100%;
@@ -57,7 +63,7 @@ div.planet_core {
     background-size: 290%;
 }
 
-#moon {
+#moon > .planet_core {
     background-image: url('https://upload.wikimedia.org/wikipedia/commons/1/1a/Moon_rotating_full_220px.gif?20160322235610');
     background-size: 150%;
 }

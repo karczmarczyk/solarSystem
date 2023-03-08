@@ -36,10 +36,10 @@ class Orbit {
         return {x:this.x0, y:this.y0, z:this.z0};
     }
 
-    calcPosition (t) {
+    calcPosition (t, percent = 1) {
         // wyznaczam pozycję
-        let x = this.x0 + this.a * Math.cos(t);
-        let y = this.y0 + this.b * Math.sin(t);
+        let x = this.x0 + this.a * percent * Math.cos(t);
+        let y = this.y0 + this.b * percent * Math.sin(t);
 
         this.sinValue = Math.sin(t);
 

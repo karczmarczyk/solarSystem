@@ -18,7 +18,7 @@
         <div class="planet" titile="Venus" id="venus"></div>
 
         <div class="planet" title="Earth" id="earth">
-            <!-- <div class="planet" id="moon"></div> -->
+            <div class="satelite" title="moon" id="moon"></div>
         </div>
 
         <div class="planet" title="Mars" id="mars"></div>
@@ -58,6 +58,10 @@
         let earth = new Planet('#earth')
             .setOrbit(earthOrbit)
             .setDistanceFromSun(300).setSpeed(29.8).setSize(50);
+        let moon = new Planet('#moon')
+                    .setOrbit(new Orbit(50,5))
+                    .setDistanceFromSun(30).setSpeed(500).setSize(15);;
+        earth.addSatelite(moon);
 
         let marsOrbit = new Orbit(500,50).setCentre(solarSystemCentre);
         let mars = new Planet('#mars')

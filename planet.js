@@ -10,9 +10,12 @@ class Planet {
     speedX = 0.001;
     planetSize = 100;
     planetSizeAfterResize = 100;
+    sizePercent = 1;
     t = Math.random(); //0;
     orbit;
     distanceFromSun = 0;
+
+    satelites = [];
 
     constructor(elementName) {
         this.elementName = elementName;
@@ -20,7 +23,7 @@ class Planet {
         console.log(this.elementName);
 
         this.core = $('<div class="planet_core" id="'+elementName+'-planet"></div>');
-        this.element.html(this.core);
+        this.element.append(this.core);
 
         return this;
     }
@@ -47,6 +50,10 @@ class Planet {
         return this;
     }
 
+    setSizePercent (p) {
+        this.sizePercent = p;
+    }
+
     setOrbit (o) {
         this.orbit = o;
         return this;
@@ -64,9 +71,12 @@ class Planet {
 
     orbiting () {
         this.t = this.t + (this.calcSpeed * this.speedX);
-        let p = this.orbit.calcPosition(this.t);
+        let p = this.orbit.calcPosition(this.t, this.sizePercent);
         this.posX = p.x;
         this.posY = p.y;
+
+        // console.log(this.elementName)
+        // console.log(p)
 
         let sunPosition = this.orbit.getSolarCentre().z;
         if (this.orbit.getIsFrontOfSun()) {
@@ -79,12 +89,13 @@ class Planet {
         this.respeed(this.orbit.sinValue);
 
         this.updatePosition();
+        this.updateSatelitesPosition();
     }
 
     resize (sinValue) {
         let x = 1;
         x = 1 + (sinValue/2);
-        this.planetSizeAfterResize = this.planetSize * x;
+        this.planetSizeAfterResize = this.planetSize * x * this.sizePercent;
     }
 
     respeed (sinValue) {
@@ -102,6 +113,28 @@ class Planet {
             'z-index':this.posZ,
             'height':this.planetSizeAfterResize+'px',
             'width':this.planetSizeAfterResize+'px',
+        });
+    }
+
+    getOrbit() {
+        return this.orbit;
+    }
+
+    addSatelite(satelite) {
+        this.satelites.push(satelite);
+    }
+
+    updateSatelitesPosition() {
+        var that = this;
+        let p = {
+            x: 20,
+            y: 20,
+            z:this.posZ,
+        };
+        this.satelites.forEach(satelite => {
+            satelite.getOrbit().setCentre(p);
+            satelite.setSizePercent(that.planetSizeAfterResize/that.planetSize);
+            satelite.orbiting();
         });
     }
 }
