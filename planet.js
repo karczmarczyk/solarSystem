@@ -6,6 +6,7 @@ class Planet {
     posY = 100;
     posZ = 100;
     speed = 1; // km/s
+    calcSpeed = 1;
     speedX = 0.001;
     planetSize = 100;
     planetSizeAfterResize = 100;
@@ -18,7 +19,8 @@ class Planet {
         this.element = $(elementName);
         console.log(this.elementName);
 
-        this.element.html('<div class="planet_core" id="'+elementName+'-planet"></div>');
+        this.core = $('<div class="planet_core" id="'+elementName+'-planet"></div>');
+        this.element.html(this.core);
 
         return this;
     }
@@ -36,6 +38,7 @@ class Planet {
 
     setSpeed (s) {
         this.speed = s;
+        this.calcSpeed = s;
         return this;
     }
 
@@ -54,13 +57,13 @@ class Planet {
     }
 
     move () {
-        this.posX = this.posX + this.speed;
+        this.posX = this.posX + this.calcSpeed;
         // ++this.planetSize;
         this.updatePosition();
     }
 
     orbiting () {
-        this.t = this.t + (this.speed * this.speedX);
+        this.t = this.t + (this.calcSpeed * this.speedX);
         let p = this.orbit.calcPosition(this.t);
         this.posX = p.x;
         this.posY = p.y;
@@ -73,6 +76,7 @@ class Planet {
         }
 
         this.resize(this.orbit.sinValue);
+        this.respeed(this.orbit.sinValue);
 
         this.updatePosition();
     }
@@ -81,6 +85,14 @@ class Planet {
         let x = 1;
         x = 1 + (sinValue/2);
         this.planetSizeAfterResize = this.planetSize * x;
+    }
+
+    respeed (sinValue) {
+        let p = Math.abs(sinValue);
+        if (p<0.9) {
+            p = 0.9;
+        }
+        this.calcSpeed = this.speed * p;
     }
 
     updatePosition () {
